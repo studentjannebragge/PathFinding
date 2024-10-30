@@ -1,0 +1,30 @@
+# Python-virtuaaliympäristö
+venv/
+*.pyc
+__pycache__/
+
+# VS Code -asetukset
+.vscode/
+
+# Jupyter Notebook -tiedostot
+.ipynb_checkpoints
+
+# Lokitiedostot
+*.log
+
+# Testitulokset
+coverage/
+.tox/
+.pytest_cache/
+
+# Ympäristömuuttujatiedostot
+.env
+
+# Python-pakettitiedostot
+*.egg-info/
+dist/
+build/
+
+# Käyttöjärjestelmään liittyvät tiedostot
+.DS_Store
+Thumbs.db
