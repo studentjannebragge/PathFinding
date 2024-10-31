@@ -106,3 +106,6 @@ The implementation provides an example where it creates an initial state `[0, 0]
 This project demonstrates a simple breadth-first search implementation using a custom `SearchNode` class and recursive path traversal. It provides a foundation for understanding graph search algorithms and can be extended to solve more complex problems involving larger state spaces or different goal conditions.
 
 Feel free to explore and modify the notebook to better understand the BFS process and apply it to new types of problems.
+
+
+[More about the code](https://chatgpt.com/share/67234bea-e260-8002-bdfb-ea07241db13a)
