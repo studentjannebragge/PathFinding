@@ -1,7 +1,10 @@
 nimi,suoritusaika,kustannus,solmut
-A*,0.01,34.0,729
-A*,0.16,79.0,2821
-A*,0.21,95.0,3197
-A*,0.96,121.0,6855
-A*,0.00,25.0,175
-A*,0.02,50.0,987
+A*,0.11,78.0,2521
+ahne dijkstra,0.00,134.0,309
+leveysuunnattu dijkstra,1.11,95.0,7211
+leveysuunnattu dijkstra,0.11,39.0,2467
+leveysuunnattu dijkstra,0.48,101.0,4721
+leveysuunnattu dijkstra,0.24,108.0,3307
+leveysuunnattu dijkstra,0.02,67.0,877
+leveysuunnattu dijkstra,0.05,36.0,1341
+leveysuunnattu dijkstra,1.17,82.0,7269

@@ -1,8 +1,4 @@
 import math
-import random
-from levels import level
-import pandas as pd
-import os
 
 class SearchNode:
     def __init__(self, state, action=-1, prevNode=None):
@@ -97,75 +93,6 @@ def searhPathFindInGrid(initialState, endState, isLegalState, level, actions, po
     
     return dijkstra(initialState, popBest, isGoalFound, getNextNodes) 
 
-
-
-
-#arvotaan lähtöpaikka
-def startpoint():
-    starts = [[random.randint(1, 63), random.randint(1, 63)] for _ in range(5)]
-    start = starts[0]
-    return start
-
-#arvotaan maali
-def finishpoint():
-    finishes = [[random.randint(1, 63), random.randint(1, 63)] for _ in range(5)]
-    finish = finishes[0]
-    return finish
-
-# actionit taulukoituna: (0 suuntaa)
-actions = [[-1, 0], [1, 0],[0, -1], [0, 1]]
-#actions = [[-1, 0], [1, 0],[0, -1], [0, 1], [-1, -1], [1, 1], [1, -1], [-1, 1]]
-
-# Laillisen tilan tarkastusfunktio:
-def isLegalState(state):
-    x = state[0]
-    y = state[1]
-    if( x < 0 or y < 0):
-        return False
-    if( y >= len(level) or x >= len(level[y]) ):
-        return False
-    return level[y][x] < 9 #estetään seinien läpi kävely
-
-def printpic(putPixel, goaledNode, printMap, openList):
-
-    def printNodeOnLevel(node):
-        putPixel(level, node.state, 11)
-
-    def printOpenNodeOnLevel(node):
-        putPixel(level, node.state, 10)
-
-    traversePath(goaledNode, printNodeOnLevel)
-
-    for openNode in openList:
-        printOpenNodeOnLevel(openNode)
-    printMap(level)
-
-def dataTallennus(openList, closedList, goaledNode, name, suoritusaika):
-    solmut = len(openList) + len(closedList)
-    #if goaledNode == None:
-        #goaledNode = SearchNode(state=[0, 0]) #lisäys!!!!!!!!!!
-    kustannus = str(goaledNode.totalG)
-
-    # Oletetaan, että meillä on DataFrame
-    data = {
-        "nimi": [name],
-        "suoritusaika": [suoritusaika],
-        "kustannus": [kustannus],
-        "solmut": [solmut]
-    }
-
-    df = pd.DataFrame(data)
-
-    file_path = "testi.csv"
-    if not os.path.exists(file_path):
-        # Jos tiedostoa ei ole, luodaan se ja lisätään otsikot
-        df.to_csv(file_path, index=False)
-    else:
-        # Jos tiedosto on olemassa, lisätään tiedot ilman otsikoita
-        df.to_csv(file_path, mode='a', index=False, header=False)
-
-    print(df[["nimi", "suoritusaika", "kustannus", "solmut"]])
-
 # Leveyssuunnatun haun kustannusfunktio:    
 def popBestG(openList):
     # oleta ensimmäinen pienimmäksi
@@ -202,7 +129,6 @@ def popBestF(openList):
     # oleta ensimmäinen pienimmäksi
     currentNode = openList[0]
     minIndex = 0
-    name = "A*"
     # F = G + k*H
     minF = currentNode.totalG + k*currentNode.heuristicCost
     for index, item in enumerate(openList):
@@ -214,9 +140,3 @@ def popBestF(openList):
     openList.pop(minIndex)
     return currentNode
 
-"""
-def zero():
-    goaledNode = SearchNode(state=[0, 0])  # Initialize with a default state
-    goaledNode.totalG = 0
-    return goaledNode
-"""
