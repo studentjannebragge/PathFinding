@@ -137,12 +137,4 @@ GraphHelper.printGraph(input, best_path)
 
 ## Notes
 
-- Ensure that `Dijkstra` and `GraphHelper` classes are defined in your environment.
-- Adjust the adjacency matrix `input` to reflect your specific graph.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-```
-
-This `README.md` should guide users through setting up and using the code to visualize graphs and compute shortest paths.
+[Source](https://github.com/thiagolcks/dijkstra)
