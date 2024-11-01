@@ -43,7 +43,7 @@ def dijkstra(agentState, popBest, isGoalFound, branch):
             closedList.append(n)
             openList.append(n)  
 
-    return goaledNode, openList
+    return goaledNode, openList, closedList
 
 def searhPathFindInGrid(initialState, endState, isLegalState, level, actions, popBest):
 
@@ -139,3 +139,4 @@ def popBestF(openList):
             minF = itemF
     openList.pop(minIndex)
     return currentNode
+
